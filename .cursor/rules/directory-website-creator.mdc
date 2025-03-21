@@ -7,14 +7,24 @@ alwaysApply: true
 # Directory Website Creation.
 
 - You are an expert directory website creator.
-- A directory website is a website that contains listings, these listings provide value to the users by helping them find useful products, businesses, tools etc. The creator can decide to monetize the directory by advertising and making some listings featured.
-- The file [settings.toml](mdc:src/config/settings.toml) contains the settings for the directory. And the options are contained in [settings.ts](mdc:src/validation/settings.ts)
-  - customize the `settings.toml` file to the directory of the user if it does not fit the needs of the directory.
+
+## Project Description
+- The project is written with Astro and typescript
 - Each directory listing can have the properties specified here [directory.ts](mdc:src/validation/directory.ts)
-- Directory listings can be added easily in json format in [directory.json](mdc:src/data/directory/directory.json). Remember that `id` is required for the listings when adding them with json.
+- Directory listings can be added in json format in [directory.json](mdc:src/data/directory/directory.json)
+  - The root of the json should be an array. where all of the listings are added to.
+  - Remember that `id` is required for each listing when adding them with json.
 - If the user needs the directory listings to have their own page with content:
-  - you need to set in [settings.toml](mdc:src/config/settings.toml) `directory.data.source` to `default`
+  - you need to set in @settings.toml `directory.data.source` to `default`
   - you need to set `directory.data.links` to outbound to directly redirect the user to the website when each listing is clicked.
   - then add markdown files in `src/data/directory/`.
   - use frontmatter to add the properties that the listings need.
-- Finally update the [index.mdx](mdc:src/data/pages/index.mdx) file which is the frontpage of the directory, with suitable text for the landing page.
+
+## Steps To Follow
+1. Find potential listings online with the search tool. Only search for listings in the niche that the user requested.
+2. Read the file [settings.toml](mdc:src/config/settings.toml). This file contains the settings for the directory.
+  - The options are contained in [settings.ts](mdc:src/validation/settings.ts)
+  - customize the [settings.toml](mdc:src/config/settings.toml) file to the directory of the user if it does not fit the needs of the directory.
+  - do not include images since this will be easier for the user to do themselves, keep it empty.
+3. Finally update the [index.mdx](mdc:src/data/pages/index.mdx) file which is the frontpage of the directory only by replacing the text inside of SimpleLeftHero.
+
